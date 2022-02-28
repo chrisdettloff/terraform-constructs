@@ -11,8 +11,10 @@ class MyStack extends TerraformStack {
       region: "us-east-1",
     });
 
-    new S3Bucket(this, "S3 Bucket", {
+    // Use updated website bucket construct for static website
+    new S3Bucket(this, "aws_s3_bucket", {
       bucket: "portfolio",
+      acl: "public_read",
     });
   }
 }
